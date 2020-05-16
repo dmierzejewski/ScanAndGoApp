@@ -1,5 +1,7 @@
 {
   "name": "ScanAndGoApp",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }
