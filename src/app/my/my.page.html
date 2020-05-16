@@ -1,0 +1,89 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="withBGC">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Moje konto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="fadeIn">
+ 
+   <ion-list lines="none">
+    <ion-item>
+     
+        <ng-container *ngIf="isLogged()">
+          <div style="width:100%;text-align: center;">
+            <h4>Witaj, {{getUserName()}} </h4>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="!isLogged()">
+          <div style="width:100%;text-align: center;">
+            <h5 (click)="redirectToLogin()">Zaloguj się, aby móc więcej </h5>
+          </div>
+        </ng-container>
+    </ion-item>
+    <ion-item-divider>
+    </ion-item-divider>
+    <ion-item>
+      <ng-container *ngIf="appService.isSetMyShop">
+        <div style="width:100%;text-align: center;">
+       <h4>Twój sklep: </h4>
+          <h5>{{appService.myShop.name}}</h5>
+          <h6>{{appService.myShop.address}}</h6>
+        </div>
+         
+      </ng-container>
+      <ng-container *ngIf="!appService.isSetMyShop">
+        <div style="width:100%;text-align: center;">
+         
+             <h6>Wybierz swój sklep, aby w pełni cieszyć się możliwościami aplikacji.</h6>
+           </div>
+      </ng-container>
+      
+    </ion-item>
+    <ion-item-divider>
+    </ion-item-divider>
+    <ion-item>
+      <div style="width:100%;text-align:center">
+        <div style="width: 100%;float: left"> <h5>Zmień sklep:</h5></div>
+        <div style="width: 100%; float:left">
+          <ion-select (ionChange) = "appService.setMyShop($event.target.value)" 
+                      [interfaceOptions]="customAlertOptions" 
+                      interface="alert" 
+                      multiple="false" 
+                      placeholder="wybierz sklep..."
+                      okText="OK" cancelText="ANULUJ">
+            <ng-container *ngFor="let item of shops">
+              <ion-select-option value="{{item.id}}">
+               
+              {{item.name + ', ' + item.distance + ' km stąd'}}
+
+            
+              </ion-select-option>
+            </ng-container>
+          </ion-select>
+        </div>
+      </div>
+    </ion-item>
+    <ion-item-divider>
+    </ion-item-divider>
+   
+    <ng-container *ngIf="isLogged()">
+      <ion-item>
+        <div style="width:100%;text-align: center;">
+          <span class="logout" (click)="logOut()">Wyloguj</span>
+        </div>
+      </ion-item>
+    </ng-container>
+
+   
+  
+</ion-list>
+
+
+
+  
+
+</ion-content>

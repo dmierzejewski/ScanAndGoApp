@@ -1,0 +1,27 @@
+<div>
+
+  <ion-card *ngFor="let item of doors">
+    <ion-card-header>
+      <ion-card-subtitle>  {{item.model}}</ion-card-subtitle>
+      <ion-card-title>  {{item.producer}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+    
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide>
+          <div>
+          <p>{{item.type}}</p>
+          <p>{{item.description}}</p>
+        </div>
+         
+        </ion-slide>
+   
+        <ion-slide *ngFor="let it of item.photos">
+          <img class="imgItem" src="{{it}}"/>
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
+
+</div>

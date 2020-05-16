@@ -1,0 +1,100 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="withBGC">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Wyszukiwanie produktów</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="background fadeIn">
+  <ion-item class="withSameBackGround">
+    <ion-label><span class="auth">nazwa: </span></ion-label>
+    <ion-input class="auth" [(ngModel)]="query" (ionChange)="changeInput()"></ion-input>
+   
+  </ion-item>
+  <ion-grid>
+    <!--
+        <ng-container *ngFor="let item of appService.products;let i = index" >
+      -->
+      <ng-container *ngFor="let item of products;let i = index" >
+    
+       <!--  <ion-card> <ion-card [color]="item.discount>0.0 ? 'warning' : ''" > -->
+        <ion-slides #mySlider pager="false" [options]="slideOpts">
+          <ion-slide >
+        <ion-card [class]="appService.isInPromo(item.id) ? 'ion-card-promo search' : 'search'" >
+   
+        <ng-container >
+          <ion-card-header class="products">
+            <ion-card-subtitle>  {{item.name}}</ion-card-subtitle>
+            <ion-card-title>  
+              <ng-container *ngIf="appService.isInPromo(item.id)">
+                <span class="old">{{item.price}} zł</span>
+                <span class="new"> {{appService.getPromoPrice(item.id)}} zł</span>
+              </ng-container>
+              <ng-container *ngIf="!appService.isInPromo(item.id)">
+                {{item.price}}zł
+              </ng-container>
+           
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+                <div>
+                  <img class="image-product" src={{item.image}}>
+                </div>
+              </ion-col>
+              <ion-col size="2" offset="4">
+                <div>
+                  <!--                  <ion-icon class="center" (click)="shoppingListService.askAddProductToShoppingList(item)" name="add-circle-outline" style = "zoom:3.0">
+ -->
+                  <ion-icon class="center" (click)="localDataService.askAddProductToShoppingList(item)"name="add-circle-outline" style = "zoom:3.0">
+                    <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+                  </ion-icon>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+          <ng-container *ngIf="appService.isInPromo(item.id)">
+            <ion-card-header style="text-align: left; padding-top:0px;margin-top:0px" class="promo">
+              <ion-card-subtitle style="text-align: left;">   <span>promocja do {{item.promoEnd}}</span></ion-card-subtitle>
+            
+            </ion-card-header>
+            
+          </ng-container>
+      
+        </ng-container>
+    
+    </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle> 
+            {{item.description}}
+          </ion-card-subtitle>
+        </ion-card-header>
+       
+      </ion-card>
+  </ion-slide>
+    </ion-slides>
+  </ng-container>
+  
+  </ion-grid>
+  
+  
+
+</ion-content>
+
+
+<!--
+  <ng-container *ngIf="products.length.toString()==='0'&&query.length>0">
+    <ion-toolbar>
+      <ion-title size="small"> <span>brak...</span></ion-title>
+    </ion-toolbar>
+   
+
+  </ng-container>
+-->

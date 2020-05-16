@@ -1,0 +1,29 @@
+.prod {
+    background-color: goldenrod;
+    max-height: 0px;
+    padding: 0px;
+    visibility: hidden;
+}
+
+
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    //background-color: rgb(185, 185, 185);
+    background-color: #E9F4FD;
+    margin:10px;
+  
+    .card {
+      display: inline-block;
+      min-width: 200vw;
+      // margin: 0 auto;
+    }
+}
+
+.notEmptyClass{
+  max-height: 0px;
+ // background-color: green;
+ visibility: hidden;
+ //border: 1px solid black;
+}

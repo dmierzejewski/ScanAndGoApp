@@ -1,0 +1,113 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="withBGC">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Moje rachunki</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="background fadeIn">
+
+  <div class="notEmptyClass" #myFlag>
+  
+    <ion-toolbar class="withSameBackGround" >
+      <ion-title>
+        <br>
+      <div class="center-in-alert">Kontroluj swoje wydatki</div>
+      <br>
+        <div class="center-in-alert appSubtitle">poniżej Twoje wydatki w tym roku</div>
+      </ion-title>
+    </ion-toolbar>
+ 
+    <div class="scrolling-wrapper">
+      <div class="card">
+          <ion-card-content>
+              <canvas #lineCanvas></canvas>
+          </ion-card-content>
+      </div>
+    </div>
+
+    <ion-toolbar class="withSameBackGround" >
+      <ion-title>
+        <br>
+      <div class="center-in-alert" style="margin-top:15px">Twoje rachunki:</div>
+      
+      </ion-title>
+    </ion-toolbar>
+
+    <ng-container *ngFor="let item of getBillss()">
+    
+      <app-accordion [bill]="item"></app-accordion>
+
+    </ng-container>
+  
+    <ion-toolbar class="withSameBackGround" >
+      <ion-title size="small"> <span (click) = "increment()">{{getValue()}}</span></ion-title>
+    </ion-toolbar>
+
+  </div>
+
+  <ng-container *ngIf="!size">
+    <ion-toolbar class="withSameBackGround" >
+      <ion-title>
+        <br>
+      <div class="center-in-alert">Nie masz żadnych rachunków.</div>
+     
+     
+      </ion-title>
+    </ion-toolbar>
+  </ng-container>
+
+
+</ion-content>
+<!-- 
+
+
+
+
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col size="6">
+        <ion-button size="small" class = "button button-assertive button-outline">
+          wczoraj
+        </ion-button>
+      </ion-col >
+      <ion-col size="6">
+        <ion-button size="small" class = "button button-assertive button-outline">
+          przedwczoraj
+        </ion-button>
+      </ion-col >
+    </ion-row>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button size="small" class = "button button-assertive button-outline" style="color: gray;">
+          ostatni tydzień
+        </ion-button>
+      </ion-col >
+      <ion-col size="6">
+        <ion-button size="small" class = "button button-assertive button-outline">
+          ostatni miesiąc
+        </ion-button>
+      </ion-col >
+    </ion-row>
+
+
+  </ion-grid>
+   <ion-card-header (click) = "toggleShowBill()">
+      <ion-card-subtitle>{{item.price}}</ion-card-subtitle>
+      <ion-card-title>{{item.date}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content >
+     
+        <ng-container *ngFor="let prod of item.products">
+          <p>{{prod.name}}</p>
+        </ng-container>
+    
+    </ion-card-content>
+ -->

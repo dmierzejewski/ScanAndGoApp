@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="withBGC">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>O nasss</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="background">
+ <!--  <img src="{{storage.refFromURL('gs://scanandgo-pwsa-6148c.appspot.com/products/12345.jpg')}}"> -->
+ <div class="fadeIn">
+  <ion-grid>
+    <ion-row *ngFor="let row of grid">
+      <ion-col size="6" *ngFor="let col of row">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>{{col.title}}</ion-card-title>
+          </ion-card-header>
+        
+          <ion-card-content>
+            
+            {{col.content}}
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</div>
+
+  
+
+</ion-content>

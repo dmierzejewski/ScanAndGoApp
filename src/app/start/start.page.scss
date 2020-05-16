@@ -1,0 +1,31 @@
+
+ion-col{
+    //background-color: red;
+    //border: 1px solid black;
+    padding:0px;
+    margin:0px;
+   // background: rgb(114,161,172);
+   // background: linear-gradient(90deg, rgba(114,161,172,1) 0%, rgba(140,210,228,1) 68%, rgba(114,161,172,1) 100%);
+}
+
+ion-card{
+    margin:2px;
+    max-width: 48vw;
+    max-height: 48vw;
+    width: 48vw;
+    height: 48vw;
+}
+ion-card-content{
+    padding:10px;
+    font-size: 0.9em;
+}
+ion-card-header{
+    padding:10px;
+    text-align: center;
+    
+}
+ion-card-title{
+    font-weight: 600;
+    font-size: 0.92em;
+    
+}

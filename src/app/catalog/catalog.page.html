@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Catalog</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of doors">
+    <ion-card-header>
+      <ion-card-subtitle>  {{item.model}}</ion-card-subtitle>
+      <ion-card-title>  {{item.producer}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+    
+      <ion-slides pager="true" [options]="slideOpts">
+        <ion-slide>
+          <div>
+          <p>{{item.type}}</p>
+          <p>{{item.description}}</p>
+        </div>
+         
+        </ion-slide>
+   
+        <ion-slide *ngFor="let it of item.photos">
+          <img class="imgItem" src="{{it}}"/>
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

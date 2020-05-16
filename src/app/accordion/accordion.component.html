@@ -1,0 +1,43 @@
+<ion-card>
+  <ion-card-header (click) = "toggleShowBill()" class="bills">
+    <ion-card-subtitle>{{bill.price}}zł</ion-card-subtitle>
+    <ion-card-title>{{bill.date}}</ion-card-title>
+  </ion-card-header>
+ <ion-card-content>
+  <div class="ion-card-content" #products>
+   
+    <ion-grid>
+      <ion-row class="header">
+        <ion-col size="8">
+         nazwa
+         </ion-col>
+         <ion-col size="2">
+           ilość
+         </ion-col>
+         <ion-col size="2">
+          cena
+         </ion-col>
+
+      </ion-row>
+      <ion-row *ngFor="let prod of bill.products">
+       
+       
+        
+            <ion-col size="8">
+             {{prod.name.slice(0,20)}}
+            </ion-col>
+            <ion-col size="2">
+              {{prod.quantity}}
+            </ion-col>
+            <ion-col size="2">
+              {{prod.price}}
+            </ion-col>
+        
+      
+      </ion-row>
+    </ion-grid>
+   
+  
+  </div>
+</ion-card-content>
+</ion-card>

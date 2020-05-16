@@ -1,0 +1,87 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="withBGC">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Moje zakupy</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="fadeIn">
+
+
+
+  <div class="icon">
+    <ion-toolbar>
+      <ion-title size="large"><p class="header">kliknij, aby zeskanować</p></ion-title>
+    </ion-toolbar>
+  
+      <ion-icon class="center" (click)="scan()" name="scan-outline" style = "zoom:5.0">
+        <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+      </ion-icon>
+      <div class="center-in-alert">
+        <ion-toolbar>
+          <ion-title size="small"><p class="subheader">lub wpisz kod kreskowy poniżej:</p></ion-title>
+        </ion-toolbar>
+       
+       
+        <ion-item>
+          <ion-input (ionChange)="changeInput()" color="dark" [(ngModel)]="barcode"></ion-input>
+        </ion-item>
+      </div>
+  </div>
+
+
+
+  <div #products class="square">
+    <p>Produkt z listy!</p>
+  </div>
+
+    <ng-container *ngIf="appService.myProducts.length>0;else noProd">
+      
+      <ion-fab (click) = "checkSummaryBill()" vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+          <ion-icon name="arrow-forward-circle"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+      
+        <ion-toolbar>
+          <ion-title size="large"><p class="header">Suma: {{getSum()}} zł</p></ion-title>
+        </ion-toolbar>
+        <ion-toolbar>
+          <ion-title size="small">Lista twoich produktów:</ion-title>
+        </ion-toolbar>
+    </ng-container>
+    <ng-template #noProd>
+      <ion-toolbar>
+        <ion-title size="small">Twój koszyk jest pusty.</ion-title>
+      </ion-toolbar>
+    </ng-template>
+  
+  <ion-card *ngFor="let item of appService.myProducts">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="10" size-sm>
+          <div>
+            <ion-card-header>
+              <ion-card-subtitle>{{item.name}}</ion-card-subtitle>
+              <ion-card-title>{{item.price}}zł</ion-card-title>
+              <ion-card-subtitle>{{item.quantity}} szt.</ion-card-subtitle>
+            </ion-card-header>
+          </div>
+        </ion-col>
+        <ion-col size="2" size-sm>
+          <div>
+            <ion-icon class="center" (click)="removeMyProduct(item.barcode)" name="close-circle-outline" style = "zoom:3.0">
+              <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+            </ion-icon>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+   
+  
+ 
+  </ion-card>
+
+</ion-content>

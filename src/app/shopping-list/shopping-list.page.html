@@ -1,0 +1,169 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="withBGC">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lista zakupów</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background fadeIn">
+  <ng-container *ngIf="shoppingList.length===0">
+    <ion-toolbar class="withSameBackGround" >
+      <ion-title>
+        <br>
+       <div class="center-in-alert">Twoja lista produktów jest pusta</div>
+      <br>
+       <div class="center-in-alert appSubtitle"><span>przejdź do oferty, aby dodać produkty do listy</span></div>
+      </ion-title>
+    </ion-toolbar>
+    <div>
+      <div style="width:max-content;margin: 0 auto; margin-top:10px">
+        <ion-button (click)="redirectToProducts()" size="small">
+        
+         oferta
+        </ion-button>
+      </div>
+    </div>
+
+  </ng-container>
+  <ng-container *ngIf="shoppingList.length>0">
+
+   
+    <div>
+      <div style="width:max-content;margin: 0 auto; margin-top:10px">
+        <ion-button (click)="clearShoppingList()" color="danger" size="small">
+          <ion-icon slot="end" name="trash"></ion-icon>
+          wyczyść listę
+        </ion-button>
+      </div>
+    </div>
+
+    <!-- <div style="position: relative; min-height: 45px">
+      <div style="width:max-content; position: absolute; right: 10px; top: 5px">
+        <ion-button size="small">
+          <ion-icon slot="end" name="trash"></ion-icon>
+          wyczyść listę
+        </ion-button>
+      </div>
+    </div> -->
+   
+    </ng-container>
+  <ion-grid>
+   <!--  <ion-card *ngFor="let item of shoppingList" > -->
+     <ng-container *ngFor="let item of shoppingList" >
+       <ng-container *ngIf="appService.isInMyShop(item.id)">
+         <ion-card [class]="appService.isInPromo(item.id) ? 'ion-card-promo' : ''" >
+      
+      
+          <ion-card-header class="products">
+            <ion-card-subtitle>  {{item.name}}</ion-card-subtitle>
+            <ion-card-title>  
+              <ng-container *ngIf="appService.isInPromo(item.id)">
+                <span class="old">{{item.price}} zł</span>
+                <span class="new"> {{appService.getPromoPrice(item.id)}} zł </span>
+              
+              </ng-container>
+              <ng-container *ngIf="!appService.isInPromo(item.id)">
+                {{item.price}}zł
+              </ng-container>
+              <ion-card-subtitle>  {{item.quantity}}szt.</ion-card-subtitle>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+                <div>
+                  <img class="image-product-shopping-list" src={{item.image}}>
+                </div>
+              </ion-col>
+              <ion-col size="2">
+                <div>
+                  <!--                   <ion-icon class="center" (click)="shoppingListService.incrementCount(item.id)" name="add-outline" style = "zoom:2.0">
+-->
+                  <ion-icon class="center" (click)="localDataService.incrementCount(item.barcode)" name="add-outline" style = "zoom:2.0">
+                    <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+                  </ion-icon>
+                </div>
+              </ion-col>
+              <ion-col size="2">
+                <div>
+                  <!--                   <ion-icon class="center" (click)="shoppingListService.decrementCount(item.id)" name="remove-outline" style = "zoom:2.0">
+  -->
+                  <ion-icon class="center" (click)="localDataService.decrementCount(item.barcode)" name="remove-outline" style = "zoom:2.0">
+                    <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+                  </ion-icon>
+                </div>
+              </ion-col>
+               
+              <ion-col size="2">
+                  <div >
+<!--                       <ion-icon class="center" (click)="shoppingListService.deleteProductFromShoppingList(item.id)" name="close-circle-outline" style = "zoom:3.0">
+-->
+<ion-icon class="center"  (click)="localDataService.deleteProductFromShoppingList(item.barcode)" name="close-circle-outline" style = "zoom:3.0">
+
+                    <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+                    </ion-icon>
+                  </div>
+              
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+          <ng-container *ngIf="appService.isInPromo(item.id)">
+            <ion-card-header style="text-align: left; padding-top:0px;margin-top:0px" class="promo">
+              <ion-card-subtitle style="text-align: left;">   <span>promocja do {{item.promoEnd}}</span></ion-card-subtitle>
+            
+            </ion-card-header>
+            
+          </ng-container>
+      
+    
+      </ion-card>
+     </ng-container>
+     <ng-container *ngIf="!appService.isInMyShop(item.id)">
+       <div style="position: relative">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>{{item.name}}</ion-card-subtitle>
+            
+            <ion-card-subtitle>{{item.quantity}}szt.</ion-card-subtitle>
+          </ion-card-header>
+        
+          <ion-card-content>
+            <ion-row>
+              <ion-col size="6">
+                <div>
+                  <img class="image-product" src={{item.image}}>
+                </div>
+              </ion-col>
+              <ion-col size="2">
+               
+              </ion-col>
+              <ion-col size="2">
+               
+              </ion-col>
+               
+              <ion-col size="2">
+                  <div >
+<!--                       <ion-icon class="center" (click)="shoppingListService.deleteProductFromShoppingList(item.id)" name="close-circle-outline" style = "zoom:3.0">
+-->
+<ion-icon class="center"  (click)="localDataService.deleteProductFromShoppingList(item.barcode)" name="close-circle-outline" style = "zoom:3.0">
+
+                    <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+                    </ion-icon>
+                  </div>
+              
+              </ion-col>
+            </ion-row>
+          </ion-card-content>
+        </ion-card>
+     
+          <span class="inaccessible">NIEDOSTĘPNY</span>
+      
+       
+        </div>
+     
+     </ng-container>
+  </ng-container>
+  </ion-grid>
+</ion-content>

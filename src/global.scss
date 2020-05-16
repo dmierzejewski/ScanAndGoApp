@@ -24,3 +24,247 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+
+
+.center-in-alert{
+    max-width: max-content;
+    margin: 0 auto
+}
+
+
+///////////////////////////  myAlertFound  ///////////////////////////////////////////////
+.myAlertFound .alert-wrapper.sc-ion-alert-md {
+   // min-height: 62vh;
+    min-width: 80vw;
+ }
+.myAlertFound .alert-head{
+    padding:0px;
+    margin:0px;
+}
+.myAlertFound .alert-message{
+    min-height: 58vh;
+    padding-bottom:0px;
+    margin-bottom:0px;
+}
+.myAlertFound img{
+    max-height: 17vh;
+}
+.myAlertFound .alert-button-group{
+    max-height: 50px;
+    position:absolute;
+    bottom:0px;
+}
+.myAlertFound .myButton {
+    margin-bottom:0px;
+    font-size: 1.7em;
+}
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+///////////////////  myAlertAddProductToShoppingList  ////////////////////////////////////
+.myAlertAddProductToShoppingList .alert-wrapper.sc-ion-alert-md {
+   // min-height: 62vh;
+    min-width: 80vw;
+ }
+.myAlertAddProductToShoppingList .alert-head{
+    padding:0px;
+    margin:0px;
+}
+.myAlertAddProductToShoppingList .alert-button-group {
+    max-height: 50px;
+}
+.myAlertAddProductToShoppingList .myButton {
+    margin-bottom:0px;
+    font-size: 1.7em;
+}
+/////////////////////////////////////////////////////////////////////////////////////////
+
+
+.summaryBill .alert-head{
+    padding:0px;
+    margin:0px;
+}
+.summaryBill .summaryBillHeader{
+    //margin-top:20px;
+    font-size: 1.3em;
+}
+.summaryBill .summaryBillHeaderWrapper{
+    margin-top:15px;
+    margin-bottom:22px;
+}
+
+
+
+
+
+
+
+
+.missingProducts .alert-head{
+    padding:0px;
+    margin:0px;
+}
+.missingProducts .missingProductsHeader{
+    //margin-top:20px;
+    font-size: 1.0em;
+    font-weight: 600;
+    text-align: center;
+}
+.missingProducts .missingProductsHeaderWrapper{
+    margin-top:15px;
+    margin-bottom:22px;
+}
+
+
+
+//????????????????????????????????????
+.alert-wrapper.sc-ion-alert-md {
+    min-width: 95%;
+ }
+
+
+ //myPage
+ .alert-radio-label.sc-ion-alert-md{
+    font-size:14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+ }
+ .alert-radio-icon.sc-ion-alert-md {
+     //left:15px;
+    // width:15px;
+     //height:15px;
+
+ }
+ 
+
+
+
+
+alert-radio-icon{
+     visibility: hidden;
+     max-width: 0px;
+     max-height: 0px;
+ }
+
+
+
+
+
+
+#count {
+    padding-top: 25px;
+    margin: 0 auto;
+    font-weight: 700;
+    // background-color: red;
+}
+#countDel {
+    padding-top: 25px;
+    margin: 0 auto;
+    // background-color: red;
+}
+
+
+.withBGC{
+    --background: #779ECB;
+   // --background: rgb(114,161,172);
+    //--background: linear-gradient(90deg, rgba(114,161,172,1) 0%, rgba(140,210,228,1) 68%, rgba(114,161,172,1) 100%);
+}
+
+
+ion-card-title{
+    //font-weight: 550;
+    font-size: 1.2em;
+}
+ion-content.background{
+    --background: #B9D6F3;
+    //--background: url('./assets/bg6.jpg') 0 0/100% 100% no-repeat;
+}
+
+.old{
+    text-decoration: line-through;
+    text-decoration-color: red;
+    font-size: 0.9em;
+    font-style: gray;
+}
+.new{
+    color: red;
+    //font-style:red;
+    //font: red
+    //font-weight: 500;
+}
+.ion-card-promo{
+    //border:5px solid #03cffc;
+    border:5px solid #FF9AA2;
+    // max-height:38vh;
+   // #FF9AA2
+}
+
+
+ion-toolbar.withBackGround{
+    --background:#F1E8D9
+}
+.withSameBackGround{
+    --background: #B9D6F3;
+}
+ion-card{
+    opacity: 0.85;
+    width:95%;
+    //max-height:37vh;////////////////////////////////////////////////////////////////////////////////////
+    //margin:0px;
+    //padding:0px;
+}
+//bo klawiatura się rozwija i zmniejsza
+ion-card.search{
+   // min-height: 37vh;///////////////////////////////////////////////////////////////////////////////////
+}
+ion-card.bills{
+    --background: #C7CEEA;
+}
+
+ion-card-header.products{
+    text-align: left;
+    //margin-top: 0;
+    padding-top:5px;
+   // font-size: 3em;
+}
+ion-card-header.promo{
+    margin:0px;
+    padding:0px;
+}
+ion-card-subtitle{
+   // font-size: 1em;
+    //text-align: left;
+}
+img.image-product{
+    max-width: 27vw;
+   
+}
+.image-product-shopping-list{
+   
+    max-width: 25vw;
+   
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  .fadeIn {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+  }
+
+ 
+
+.appSubtitle {
+    font-size: 0.65em;
+}

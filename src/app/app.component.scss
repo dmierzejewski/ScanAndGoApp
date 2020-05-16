@@ -1,5 +1,8 @@
-ion-menu ion-content {
-  --background: var(--ion-item-background, var(--ion-background-color, #fff));
+
+ion-content{
+  
+ // --background: rgb(114,161,172);
+  // --background: linear-gradient(90deg, rgba(114,161,172,1) 0%, rgba(140,210,228,1) 68%, rgba(114,161,172,1) 100%);
 }
 
 ion-menu.md ion-content {
@@ -116,4 +119,34 @@ ion-note {
 
 ion-item.selected {
   --color: var(--ion-color-primary);
+}
+ion-row {
+  padding:0;
+  margin:0;
+}
+ion-col {
+  padding:0;
+  margin:0;
+
+}
+.image {
+  margin-right:12px;
+  width: 1.7rem;
+  height: auto;
+}
+
+.logo{
+  width:60%;
+  height:auto;
+  margin-bottom:28px;
+}
+.appHeader{
+  padding-bottom:0px;
+}
+
+.logout{
+  margin-left:15px;
+  margin-top:40px;
+  padding-top:50px;
+
 }

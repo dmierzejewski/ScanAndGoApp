@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Informacje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+<ion-button (click)="toggleWindows()" expand="block" fill="outline">Okna</ion-button>
+<ion-button (click)="toggleDoors()" expand="block" fill="outline">Drzwi</ion-button>
+<ion-button expand="block" fill="outline">Rolety</ion-button>
+
+<ng-container *ngIf="doors">
+  <app-doors></app-doors>
+</ng-container>
+<ng-container *ngIf="windows">
+  <app-windows></app-windows>
+</ng-container>
+
+</ion-content>

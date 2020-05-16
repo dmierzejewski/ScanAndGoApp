@@ -1,0 +1,196 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="withBGC">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Autoryzacja</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="fadeIn">
+
+  <div class="log">
+    <ion-toolbar (click) = "toggleAccordationLog()" >
+      <ion-title size="large"><span class="center grow">Logowanie</span></ion-title>
+    </ion-toolbar>
+    <div #logg>
+      <div class="ccc" #log>
+        <ion-item>
+          <ion-label><span class="auth">login: </span></ion-label>
+          <ion-input class="auth" [(ngModel)]="login"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label><span class="auth">hasło: </span></ion-label>
+          <ion-input class="auth" type="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <ion-toolbar (click) = "logIn()" >
+          <ion-title size="large"><span class="center little">Zaloguj</span></ion-title>
+        </ion-toolbar>
+      </div>
+    </div>
+  </div>
+
+
+
+
+<div class="reg" >
+  <ion-toolbar (click) = "toggleAccordationReg()" >
+    <ion-title size="large"><span class="center grow">Rejestracja</span></ion-title>
+  </ion-toolbar>
+
+ <div #regg>
+  <div class="ccc" #reg>
+    <ion-item>
+      <ion-label><span class="auth">email: </span></ion-label>
+      <ion-input class="auth" [(ngModel)]="rlogin"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><span class="auth">hasło: </span></ion-label>
+      <ion-input class="auth" type="password" [(ngModel)]="rpassword"></ion-input>
+    </ion-item>
+    <ion-toolbar (click) = "signUpUser()" >
+      <ion-title size="large"><span class="center little">Zarejestruj</span></ion-title>
+    </ion-toolbar>
+  </div>
+ </div>
+  
+</div>
+
+
+<div>
+  <ion-toolbar (click) = "preview()" >
+    <ion-title size="large"><span class="center grow">Przeglądaj</span></ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <div style="background-color:white; height: 150px;"></div>
+  </ion-toolbar>
+</div>
+
+</ion-content>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--(click)="signUpUser()-->
+
+
+
+
+<!--
+
+  <ion-toolbar>
+    <ion-title size="large"><span class="center grow" (click)="logIn()">Zaloguj</span></ion-title>
+  </ion-toolbar>
+  
+
+ <ion-item>
+    <ion-label><span class="auth">email: </span></ion-label>
+    <ion-input class="auth" [(ngModel)]="login"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label><span class="auth">hasło: </span></ion-label>
+    <ion-input class="auth" type="password" [(ngModel)]="password"></ion-input>
+  </ion-item>
+
+
+
+
+
+
+
+<ion-toolbar (click) = "toggleAccordationLog()" >
+    <ion-title size="large"><span class="center grow">Logowanie</span></ion-title>
+  </ion-toolbar>
+
+   <div id="ccc" #log>
+    <ion-item>
+      <ion-label><span class="auth">email: </span></ion-label>
+      <ion-input class="auth" [(ngModel)]="login"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><span class="auth">hasło: </span></ion-label>
+      <ion-input class="auth" type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-toolbar (click) = "logIn()" >
+      <ion-title size="large"><span class="center little">Zaloguj</span></ion-title>
+    </ion-toolbar>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <ion-toolbar (click) = "toggleAccordationReg()" >
+    <ion-title size="large"><span class="center grow">Rejestracja</span></ion-title>
+  </ion-toolbar>
+
+   <div id="ccc" #reg>
+    <ion-item>
+      <ion-label><span class="auth">email: </span></ion-label>
+      <ion-input class="auth" [(ngModel)]="login"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label><span class="auth">hasło: </span></ion-label>
+      <ion-input class="auth" type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <ion-toolbar (click) = "signUpUser()" >
+      <ion-title size="large"><span class="center little">Zarejestruj</span></ion-title>
+    </ion-toolbar>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <ion-button size="small" style="float:right" (click)="logIn()" color="primary">
+  <ion-icon slot="start" name="trash"></ion-icon>
+  login!
+</ion-button>
+<ion-button size="small" style="float:right" (click)="preview()" color="primary">
+  <ion-icon slot="start" name="trash"></ion-icon>
+  preview
+</ion-button>
+-->
